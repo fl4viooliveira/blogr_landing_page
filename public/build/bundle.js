@@ -334,7 +334,7 @@ var app = (function () {
     const file$1 = "src/Header.svelte";
 
     function create_fragment$1(ctx) {
-    	let div;
+    	let div2;
     	let nav;
     	let h10;
     	let t1;
@@ -345,21 +345,24 @@ var app = (function () {
     	let t5;
     	let li2;
     	let t7;
+    	let div0;
     	let button0;
     	let t9;
     	let button1;
     	let t11;
+    	let main;
     	let h11;
     	let t13;
     	let p;
     	let t15;
+    	let div1;
     	let button2;
     	let t17;
     	let button3;
 
     	const block = {
     		c: function create() {
-    			div = element("div");
+    			div2 = element("div");
     			nav = element("nav");
     			h10 = element("h1");
     			h10.textContent = "Blogr";
@@ -374,56 +377,65 @@ var app = (function () {
     			li2 = element("li");
     			li2.textContent = "Connect";
     			t7 = space();
+    			div0 = element("div");
     			button0 = element("button");
     			button0.textContent = "Login";
     			t9 = space();
     			button1 = element("button");
     			button1.textContent = "Sign Up";
     			t11 = space();
+    			main = element("main");
     			h11 = element("h1");
     			h11.textContent = "A modern publishing platform";
     			t13 = space();
     			p = element("p");
     			p.textContent = "Grow your audience and build your online brand";
     			t15 = space();
+    			div1 = element("div");
     			button2 = element("button");
     			button2.textContent = "Start for Free";
     			t17 = space();
     			button3 = element("button");
     			button3.textContent = "Learn More";
-    			attr_dev(h10, "class", "logo svelte-dc6hb7");
-    			add_location(h10, file$1, 3, 8, 47);
-    			attr_dev(li0, "class", "svelte-dc6hb7");
-    			add_location(li0, file$1, 5, 12, 108);
-    			attr_dev(li1, "class", "svelte-dc6hb7");
-    			add_location(li1, file$1, 6, 12, 137);
-    			attr_dev(li2, "class", "svelte-dc6hb7");
-    			add_location(li2, file$1, 7, 12, 166);
-    			attr_dev(ul, "class", "svelte-dc6hb7");
-    			add_location(ul, file$1, 4, 8, 91);
-    			attr_dev(button0, "class", "btn-nav svelte-dc6hb7");
-    			add_location(button0, file$1, 9, 8, 205);
-    			attr_dev(button1, "class", "btn-nav svelte-dc6hb7");
-    			add_location(button1, file$1, 10, 8, 252);
-    			attr_dev(nav, "class", "svelte-dc6hb7");
-    			add_location(nav, file$1, 2, 4, 33);
-    			attr_dev(h11, "class", "svelte-dc6hb7");
-    			add_location(h11, file$1, 12, 4, 308);
-    			attr_dev(p, "class", "svelte-dc6hb7");
-    			add_location(p, file$1, 15, 4, 364);
-    			attr_dev(button2, "class", "btn svelte-dc6hb7");
-    			add_location(button2, file$1, 16, 4, 422);
-    			attr_dev(button3, "class", "btn svelte-dc6hb7");
-    			add_location(button3, file$1, 17, 4, 470);
-    			attr_dev(div, "class", "container svelte-dc6hb7");
-    			add_location(div, file$1, 1, 0, 1);
+    			attr_dev(h10, "class", "logo svelte-1o23cym");
+    			add_location(h10, file$1, 4, 8, 52);
+    			attr_dev(li0, "class", "svelte-1o23cym");
+    			add_location(li0, file$1, 6, 12, 121);
+    			attr_dev(li1, "class", "svelte-1o23cym");
+    			add_location(li1, file$1, 7, 12, 150);
+    			attr_dev(li2, "class", "svelte-1o23cym");
+    			add_location(li2, file$1, 8, 12, 179);
+    			attr_dev(ul, "class", "svelte-1o23cym");
+    			add_location(ul, file$1, 5, 8, 104);
+    			attr_dev(button0, "class", "svelte-1o23cym");
+    			add_location(button0, file$1, 11, 12, 252);
+    			attr_dev(button1, "class", "svelte-1o23cym");
+    			add_location(button1, file$1, 12, 12, 287);
+    			attr_dev(div0, "class", "btn-nav svelte-1o23cym");
+    			add_location(div0, file$1, 10, 8, 218);
+    			attr_dev(nav, "class", "svelte-1o23cym");
+    			add_location(nav, file$1, 3, 4, 38);
+    			attr_dev(h11, "class", "svelte-1o23cym");
+    			add_location(h11, file$1, 16, 8, 357);
+    			attr_dev(p, "class", "svelte-1o23cym");
+    			add_location(p, file$1, 19, 8, 425);
+    			attr_dev(main, "class", "svelte-1o23cym");
+    			add_location(main, file$1, 15, 4, 342);
+    			attr_dev(button2, "class", "btn");
+    			add_location(button2, file$1, 22, 8, 528);
+    			attr_dev(button3, "class", "btn");
+    			add_location(button3, file$1, 23, 8, 580);
+    			attr_dev(div1, "class", "btn-botton svelte-1o23cym");
+    			add_location(div1, file$1, 21, 4, 495);
+    			attr_dev(div2, "class", "container svelte-1o23cym");
+    			add_location(div2, file$1, 1, 0, 1);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
     		},
     		m: function mount(target, anchor) {
-    			insert_dev(target, div, anchor);
-    			append_dev(div, nav);
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, nav);
     			append_dev(nav, h10);
     			append_dev(nav, t1);
     			append_dev(nav, ul);
@@ -433,23 +445,26 @@ var app = (function () {
     			append_dev(ul, t5);
     			append_dev(ul, li2);
     			append_dev(nav, t7);
-    			append_dev(nav, button0);
-    			append_dev(nav, t9);
-    			append_dev(nav, button1);
-    			append_dev(div, t11);
-    			append_dev(div, h11);
-    			append_dev(div, t13);
-    			append_dev(div, p);
-    			append_dev(div, t15);
-    			append_dev(div, button2);
-    			append_dev(div, t17);
-    			append_dev(div, button3);
+    			append_dev(nav, div0);
+    			append_dev(div0, button0);
+    			append_dev(div0, t9);
+    			append_dev(div0, button1);
+    			append_dev(div2, t11);
+    			append_dev(div2, main);
+    			append_dev(main, h11);
+    			append_dev(main, t13);
+    			append_dev(main, p);
+    			append_dev(div2, t15);
+    			append_dev(div2, div1);
+    			append_dev(div1, button2);
+    			append_dev(div1, t17);
+    			append_dev(div1, button3);
     		},
     		p: noop,
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
-    			if (detaching) detach_dev(div);
+    			if (detaching) detach_dev(div2);
     		}
     	};
 

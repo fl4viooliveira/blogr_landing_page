@@ -1,103 +1,96 @@
 
 <div class="container">    
+    
     <nav>
-        <h1 class="logo">Blogr</h1>        
+        <h1 class="logo">Blogr</h1>                
         <ul>
             <li>Product</li>
             <li>Company</li>
             <li>Connect</li>
         </ul>
-        <button class="btn-nav">Login</button>
-        <button class="btn-nav">Sign Up</button>
+        <div class="btn-nav">
+            <button>Login</button>
+            <button>Sign Up</button>
+        </div>
     </nav>
-    <h1>
-        A modern publishing platform
-    </h1>
-    <p>Grow your audience and build your online brand</p>
-    <button class="btn">Start for Free</button>
-    <button class="btn">Learn More</button>
+    <main>
+        <h1>
+            A modern publishing platform
+        </h1>
+        <p>Grow your audience and build your online brand</p>
+    </main>
+    <div class="btn-botton">
+        <button class="btn">Start for Free</button>
+        <button class="btn">Learn More</button>
+    </div>
 </div>
 
 <style>
 
     @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
 
-    .container {
-        position: relative;
-        max-width: 1440px;    
-        width: 100%;
-        height: 400px;    
+    .container {        
+        max-width: 1440px;           
         background: linear-gradient(90.31deg, rgba(254, 134, 110, 0.77) 34.65%, #FF555E 99.72%);    
         margin-left: auto;
         margin-right: auto;
         border-bottom-left-radius: 50px;
-        display: grid;
-        grid-template-rows: 1fr 1fr 1fr;     
-    }
-    .container nav{ 
-        position: relative;
-        color: white;
-        grid-row: 1/2;
-        width: 90vw;
-        display: flex;
-        justify-self: center;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    .logo{
-        position: absolute;
-        font-size: 23px;
-        font-family: 'Overpass', sans-serif;
+    }    
+    nav{
+        display: flex;                       
+        color: white;        
+        align-items: center;
         justify-content: flex-start;
-        align-self: center; 
-        margin-top: auto;
-        margin-bottom: auto;                
+    }
+    .logo{                
+        font-size: 25px;
+        font-family: 'Overpass', sans-serif;        
+        order: 1; 
+        margin-left: 8vw;
     }
     ul{
-        position: relative;
-        display: inline-block;
-        text-align: center;
-        margin-left: 40px;
-        margin-right: 40px;
-        align-self: center; 
+        justify-self: flex-start;
+        order: 2;
+        width: 40%;
+        
     }
-    li{
-        position: relative;
-        display: inline-block;
-        justify-content: center;
-        margin-left: 40px;
+    li{        
+        display: inline;
+        font-size: 12px;
+        float: left;           
     }
-
-    
     .btn-nav{
-        position: relative;
-        margin-left: 40px;
-        display: inline-block;
-        align-self: center;
-        justify-self: end;
+        display: inline;
+        order: 3; 
+        margin-right: 1em;   
     }
-    h1{
-        position: absolute;
-        grid-row: 2/3;
-        align-self: start;
-        justify-self: center;
+    .btn-nav button{
         color: white;
-        margin-top: 0;
+        background: none;
+        border: 0;
+        width: 90px;
+        border-radius: 50px;
+    }
+    .btn-nav button:hover{
+        background: white;
+        color: #FF555E;
+    }
+    main{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    h1{        
+        color: white;        
     }
     p{
-        position:absolute;
-        grid-row: 2/3;
-        justify-self: center;
-        align-self: center;
         color: white;
+        text-align: center;
+        
     }
-    .btn{
-        position: relative;
-        grid-row: 3/4;
-        display: inline;
-        width: 150px;
-        height: 60px;
-        justify-self: center;
+    .btn-botton{
+
+        
     }
 
 
