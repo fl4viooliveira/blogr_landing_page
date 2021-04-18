@@ -1,8 +1,14 @@
+<script>
+    let active = false
+</script>
 
 <div class="container">    
-    <nav>
+    <nav class:active on:click={() => active= !active}>
         <a href="#0" class="logo">
             <img src="../images/logo.svg" alt="logo">
+        </a>
+        <a href="#0" class="hamburger">
+            <img src="../images/icon-hamburger.svg" alt="hamburger">
         </a>               
         <ul>
             <li>
@@ -67,10 +73,11 @@
     nav{
         display: grid;
         grid-template-columns: .5fr 2fr .5fr;
-        /* display: flex;
-        justify-content: space-between; */
         align-items: center;
         padding:40px 60px;        
+    }
+    .hamburger{
+        display: none;
     }
     .logo{
         order: 1;
@@ -200,12 +207,12 @@
         color: white;
     }
     main h1{
-        display: flex;        
+        display: flex;       
         justify-content: center;
         padding-bottom: 20px;
         font-size: 50px;
         font-weight: 500;
-        
+        text-align: center;        
     }
     main p{
         display: flex;        
@@ -213,11 +220,15 @@
         font-size: 20px;
         font-weight: 300;
         padding-bottom: 20px;
+        text-align: center;
     }
     .btn-botton{
         display: flex;        
         justify-content: center;
         padding-bottom: 80px;       
+    }
+    .btn-botton button:hover{
+        background: white;        
     }
     .btn-botton button{
         background: none;
@@ -233,7 +244,53 @@
         font-size: 12px;
         font-weight: 600;
         text-decoration: none;
+        display: block;
+        padding: 10px;
     }
+    .btn-botton button a:hover{
+        font-size: 13px;
+        color: rgb(247, 117, 10);
+        display:block
+    }
+    /* Media Query */
+    @media screen and (max-width: 700px){
+        
+        nav{
+        display: grid;
+        grid-template-columns: .2fr 2fr .2fr;
+        align-items: center;
+        padding:40px 40px;       
+    }
+        ul{
+            display: none;
+        }
+        .btn-nav{
+            display: none;
+        }
+        .hamburger{
+            display: block;
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+        .active ul {
+            display: grid;
+            grid-column: 1/4;
+            width: 100%;
+            text-align: center;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            margin-top: 40px;                        
+        }
+        .active ul li a{
+            color: black;
+            font-size: 25px;
+            font-weight: 500;
+            margin: 15px;
+        }
+
+
+    }
+
 
 
 

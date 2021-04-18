@@ -46,6 +46,10 @@ var app = (function () {
     function space() {
         return text(' ');
     }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
     function attr(node, attribute, value) {
         if (value == null)
             node.removeAttribute(attribute);
@@ -54,6 +58,9 @@ var app = (function () {
     }
     function children(element) {
         return Array.from(element.childNodes);
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
     }
     function custom_event(type, detail) {
         const e = document.createEvent('CustomEvent');
@@ -295,6 +302,19 @@ var app = (function () {
         dispatch_dev('SvelteDOMRemove', { node });
         detach(node);
     }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
     function attr_dev(node, attribute, value) {
         attr(node, attribute, value);
         if (value == null)
@@ -340,64 +360,70 @@ var app = (function () {
     	let img0;
     	let img0_src_value;
     	let t0;
-    	let ul;
-    	let li0;
-    	let a4;
-    	let t1;
+    	let a1;
     	let img1;
     	let img1_src_value;
+    	let t1;
+    	let ul;
+    	let li0;
+    	let a5;
     	let t2;
-    	let div0;
-    	let a1;
-    	let t4;
-    	let a2;
-    	let t6;
-    	let a3;
-    	let t8;
-    	let li1;
-    	let a8;
-    	let t9;
     	let img2;
     	let img2_src_value;
+    	let t3;
+    	let div0;
+    	let a2;
+    	let t5;
+    	let a3;
+    	let t7;
+    	let a4;
+    	let t9;
+    	let li1;
+    	let a9;
     	let t10;
-    	let div1;
-    	let a5;
-    	let t12;
-    	let a6;
-    	let t14;
-    	let a7;
-    	let t16;
-    	let li2;
-    	let a12;
-    	let t17;
     	let img3;
     	let img3_src_value;
+    	let t11;
+    	let div1;
+    	let a6;
+    	let t13;
+    	let a7;
+    	let t15;
+    	let a8;
+    	let t17;
+    	let li2;
+    	let a13;
     	let t18;
+    	let img4;
+    	let img4_src_value;
+    	let t19;
     	let div2;
-    	let a9;
-    	let t20;
     	let a10;
-    	let t22;
+    	let t21;
     	let a11;
-    	let t24;
+    	let t23;
+    	let a12;
+    	let t25;
     	let div3;
     	let button0;
-    	let a13;
-    	let t26;
-    	let button1;
     	let a14;
-    	let t28;
+    	let t27;
+    	let button1;
+    	let a15;
+    	let t29;
     	let main;
     	let h1;
-    	let t30;
+    	let t31;
     	let p;
-    	let t32;
+    	let t33;
     	let div4;
     	let button2;
-    	let a15;
-    	let t34;
-    	let button3;
     	let a16;
+    	let t35;
+    	let button3;
+    	let a17;
+    	let mounted;
+    	let dispose;
 
     	const block = {
     		c: function create() {
@@ -406,179 +432,190 @@ var app = (function () {
     			a0 = element("a");
     			img0 = element("img");
     			t0 = space();
+    			a1 = element("a");
+    			img1 = element("img");
+    			t1 = space();
     			ul = element("ul");
     			li0 = element("li");
-    			a4 = element("a");
-    			t1 = text("Product");
-    			img1 = element("img");
-    			t2 = space();
-    			div0 = element("div");
-    			a1 = element("a");
-    			a1.textContent = "Product 1";
-    			t4 = space();
-    			a2 = element("a");
-    			a2.textContent = "Product 2";
-    			t6 = space();
-    			a3 = element("a");
-    			a3.textContent = "Product 3";
-    			t8 = space();
-    			li1 = element("li");
-    			a8 = element("a");
-    			t9 = text("Company");
-    			img2 = element("img");
-    			t10 = space();
-    			div1 = element("div");
     			a5 = element("a");
-    			a5.textContent = "Company 1";
-    			t12 = space();
-    			a6 = element("a");
-    			a6.textContent = "Company 2";
-    			t14 = space();
-    			a7 = element("a");
-    			a7.textContent = "Company 3";
-    			t16 = space();
-    			li2 = element("li");
-    			a12 = element("a");
-    			t17 = text("Connect");
-    			img3 = element("img");
-    			t18 = space();
-    			div2 = element("div");
+    			t2 = text("Product");
+    			img2 = element("img");
+    			t3 = space();
+    			div0 = element("div");
+    			a2 = element("a");
+    			a2.textContent = "Product 1";
+    			t5 = space();
+    			a3 = element("a");
+    			a3.textContent = "Product 2";
+    			t7 = space();
+    			a4 = element("a");
+    			a4.textContent = "Product 3";
+    			t9 = space();
+    			li1 = element("li");
     			a9 = element("a");
-    			a9.textContent = "Contact";
-    			t20 = space();
+    			t10 = text("Company");
+    			img3 = element("img");
+    			t11 = space();
+    			div1 = element("div");
+    			a6 = element("a");
+    			a6.textContent = "Company 1";
+    			t13 = space();
+    			a7 = element("a");
+    			a7.textContent = "Company 2";
+    			t15 = space();
+    			a8 = element("a");
+    			a8.textContent = "Company 3";
+    			t17 = space();
+    			li2 = element("li");
+    			a13 = element("a");
+    			t18 = text("Connect");
+    			img4 = element("img");
+    			t19 = space();
+    			div2 = element("div");
     			a10 = element("a");
-    			a10.textContent = "Newsletter";
-    			t22 = space();
+    			a10.textContent = "Contact";
+    			t21 = space();
     			a11 = element("a");
-    			a11.textContent = "Linkedin";
-    			t24 = space();
+    			a11.textContent = "Newsletter";
+    			t23 = space();
+    			a12 = element("a");
+    			a12.textContent = "Linkedin";
+    			t25 = space();
     			div3 = element("div");
     			button0 = element("button");
-    			a13 = element("a");
-    			a13.textContent = "Login";
-    			t26 = space();
-    			button1 = element("button");
     			a14 = element("a");
-    			a14.textContent = "Sign Up";
-    			t28 = space();
+    			a14.textContent = "Login";
+    			t27 = space();
+    			button1 = element("button");
+    			a15 = element("a");
+    			a15.textContent = "Sign Up";
+    			t29 = space();
     			main = element("main");
     			h1 = element("h1");
     			h1.textContent = "A modern publishing platform";
-    			t30 = space();
+    			t31 = space();
     			p = element("p");
     			p.textContent = "Grow your audience and build your online brand";
-    			t32 = space();
+    			t33 = space();
     			div4 = element("div");
     			button2 = element("button");
-    			a15 = element("a");
-    			a15.textContent = "Start for Free";
-    			t34 = space();
-    			button3 = element("button");
     			a16 = element("a");
-    			a16.textContent = "Learn More";
+    			a16.textContent = "Start for Free";
+    			t35 = space();
+    			button3 = element("button");
+    			a17 = element("a");
+    			a17.textContent = "Learn More";
     			if (img0.src !== (img0_src_value = "../images/logo.svg")) attr_dev(img0, "src", img0_src_value);
     			attr_dev(img0, "alt", "logo");
-    			attr_dev(img0, "class", "svelte-1llvda");
-    			add_location(img0, file$1, 4, 12, 86);
+    			attr_dev(img0, "class", "svelte-4k6vm7");
+    			add_location(img0, file$1, 7, 12, 174);
     			attr_dev(a0, "href", "#0");
-    			attr_dev(a0, "class", "logo svelte-1llvda");
-    			add_location(a0, file$1, 3, 8, 47);
-    			if (img1.src !== (img1_src_value = "../images/icon-arrow-light.svg")) attr_dev(img1, "src", img1_src_value);
-    			attr_dev(img1, "alt", "arrow");
-    			attr_dev(img1, "class", "svelte-1llvda");
-    			add_location(img1, file$1, 8, 52, 238);
+    			attr_dev(a0, "class", "logo svelte-4k6vm7");
+    			add_location(a0, file$1, 6, 8, 135);
+    			if (img1.src !== (img1_src_value = "../images/icon-hamburger.svg")) attr_dev(img1, "src", img1_src_value);
+    			attr_dev(img1, "alt", "hamburger");
+    			attr_dev(img1, "class", "svelte-4k6vm7");
+    			add_location(img1, file$1, 10, 12, 281);
     			attr_dev(a1, "href", "#0");
-    			attr_dev(a1, "class", "svelte-1llvda");
-    			add_location(a1, file$1, 10, 24, 368);
-    			attr_dev(a2, "href", "#0");
-    			attr_dev(a2, "class", "svelte-1llvda");
-    			add_location(a2, file$1, 11, 24, 419);
-    			attr_dev(a3, "href", "#0");
-    			attr_dev(a3, "class", "svelte-1llvda");
-    			add_location(a3, file$1, 12, 24, 470);
-    			attr_dev(div0, "class", "dropdown-product svelte-1llvda");
-    			add_location(div0, file$1, 9, 20, 313);
-    			attr_dev(a4, "href", "#0");
-    			attr_dev(a4, "class", "product svelte-1llvda");
-    			add_location(a4, file$1, 8, 16, 202);
-    			attr_dev(li0, "class", "svelte-1llvda");
-    			add_location(li0, file$1, 7, 12, 181);
+    			attr_dev(a1, "class", "hamburger svelte-4k6vm7");
+    			add_location(a1, file$1, 9, 8, 237);
     			if (img2.src !== (img2_src_value = "../images/icon-arrow-light.svg")) attr_dev(img2, "src", img2_src_value);
     			attr_dev(img2, "alt", "arrow");
-    			attr_dev(img2, "class", "svelte-1llvda");
-    			add_location(img2, file$1, 17, 52, 632);
+    			attr_dev(img2, "class", "svelte-4k6vm7");
+    			add_location(img2, file$1, 14, 52, 448);
+    			attr_dev(a2, "href", "#0");
+    			attr_dev(a2, "class", "svelte-4k6vm7");
+    			add_location(a2, file$1, 16, 24, 578);
+    			attr_dev(a3, "href", "#0");
+    			attr_dev(a3, "class", "svelte-4k6vm7");
+    			add_location(a3, file$1, 17, 24, 629);
+    			attr_dev(a4, "href", "#0");
+    			attr_dev(a4, "class", "svelte-4k6vm7");
+    			add_location(a4, file$1, 18, 24, 680);
+    			attr_dev(div0, "class", "dropdown-product svelte-4k6vm7");
+    			add_location(div0, file$1, 15, 20, 523);
     			attr_dev(a5, "href", "#0");
-    			attr_dev(a5, "class", "svelte-1llvda");
-    			add_location(a5, file$1, 19, 24, 762);
-    			attr_dev(a6, "href", "#0");
-    			attr_dev(a6, "class", "svelte-1llvda");
-    			add_location(a6, file$1, 20, 24, 813);
-    			attr_dev(a7, "href", "#0");
-    			attr_dev(a7, "class", "svelte-1llvda");
-    			add_location(a7, file$1, 21, 24, 864);
-    			attr_dev(div1, "class", "dropdown-company svelte-1llvda");
-    			add_location(div1, file$1, 18, 20, 707);
-    			attr_dev(a8, "href", "#0");
-    			attr_dev(a8, "class", "company svelte-1llvda");
-    			add_location(a8, file$1, 17, 16, 596);
-    			attr_dev(li1, "class", "svelte-1llvda");
-    			add_location(li1, file$1, 16, 12, 575);
+    			attr_dev(a5, "class", "product svelte-4k6vm7");
+    			add_location(a5, file$1, 14, 16, 412);
+    			attr_dev(li0, "class", "svelte-4k6vm7");
+    			add_location(li0, file$1, 13, 12, 391);
     			if (img3.src !== (img3_src_value = "../images/icon-arrow-light.svg")) attr_dev(img3, "src", img3_src_value);
     			attr_dev(img3, "alt", "arrow");
-    			attr_dev(img3, "class", "svelte-1llvda");
-    			add_location(img3, file$1, 26, 52, 1026);
+    			attr_dev(img3, "class", "svelte-4k6vm7");
+    			add_location(img3, file$1, 23, 52, 842);
+    			attr_dev(a6, "href", "#0");
+    			attr_dev(a6, "class", "svelte-4k6vm7");
+    			add_location(a6, file$1, 25, 24, 972);
+    			attr_dev(a7, "href", "#0");
+    			attr_dev(a7, "class", "svelte-4k6vm7");
+    			add_location(a7, file$1, 26, 24, 1023);
+    			attr_dev(a8, "href", "#0");
+    			attr_dev(a8, "class", "svelte-4k6vm7");
+    			add_location(a8, file$1, 27, 24, 1074);
+    			attr_dev(div1, "class", "dropdown-company svelte-4k6vm7");
+    			add_location(div1, file$1, 24, 20, 917);
     			attr_dev(a9, "href", "#0");
-    			attr_dev(a9, "class", "svelte-1llvda");
-    			add_location(a9, file$1, 28, 24, 1156);
+    			attr_dev(a9, "class", "company svelte-4k6vm7");
+    			add_location(a9, file$1, 23, 16, 806);
+    			attr_dev(li1, "class", "svelte-4k6vm7");
+    			add_location(li1, file$1, 22, 12, 785);
+    			if (img4.src !== (img4_src_value = "../images/icon-arrow-light.svg")) attr_dev(img4, "src", img4_src_value);
+    			attr_dev(img4, "alt", "arrow");
+    			attr_dev(img4, "class", "svelte-4k6vm7");
+    			add_location(img4, file$1, 32, 52, 1236);
     			attr_dev(a10, "href", "#0");
-    			attr_dev(a10, "class", "svelte-1llvda");
-    			add_location(a10, file$1, 29, 24, 1205);
+    			attr_dev(a10, "class", "svelte-4k6vm7");
+    			add_location(a10, file$1, 34, 24, 1366);
     			attr_dev(a11, "href", "#0");
-    			attr_dev(a11, "class", "svelte-1llvda");
-    			add_location(a11, file$1, 30, 24, 1257);
-    			attr_dev(div2, "class", "dropdown-connect svelte-1llvda");
-    			add_location(div2, file$1, 27, 20, 1101);
+    			attr_dev(a11, "class", "svelte-4k6vm7");
+    			add_location(a11, file$1, 35, 24, 1415);
     			attr_dev(a12, "href", "#0");
-    			attr_dev(a12, "class", "connect svelte-1llvda");
-    			add_location(a12, file$1, 26, 16, 990);
-    			attr_dev(li2, "class", "svelte-1llvda");
-    			add_location(li2, file$1, 25, 12, 969);
-    			attr_dev(ul, "class", "svelte-1llvda");
-    			add_location(ul, file$1, 6, 8, 164);
+    			attr_dev(a12, "class", "svelte-4k6vm7");
+    			add_location(a12, file$1, 36, 24, 1467);
+    			attr_dev(div2, "class", "dropdown-connect svelte-4k6vm7");
+    			add_location(div2, file$1, 33, 20, 1311);
     			attr_dev(a13, "href", "#0");
-    			attr_dev(a13, "class", "svelte-1llvda");
-    			add_location(a13, file$1, 36, 20, 1433);
-    			attr_dev(button0, "class", "svelte-1llvda");
-    			add_location(button0, file$1, 36, 12, 1425);
+    			attr_dev(a13, "class", "connect svelte-4k6vm7");
+    			add_location(a13, file$1, 32, 16, 1200);
+    			attr_dev(li2, "class", "svelte-4k6vm7");
+    			add_location(li2, file$1, 31, 12, 1179);
+    			attr_dev(ul, "class", "svelte-4k6vm7");
+    			add_location(ul, file$1, 12, 8, 374);
     			attr_dev(a14, "href", "#0");
-    			attr_dev(a14, "class", "svelte-1llvda");
-    			add_location(a14, file$1, 37, 20, 1485);
-    			attr_dev(button1, "class", "svelte-1llvda");
-    			add_location(button1, file$1, 37, 12, 1477);
-    			attr_dev(div3, "class", "btn-nav svelte-1llvda");
-    			add_location(div3, file$1, 35, 8, 1391);
-    			attr_dev(nav, "class", "svelte-1llvda");
-    			add_location(nav, file$1, 2, 4, 33);
-    			attr_dev(h1, "class", "svelte-1llvda");
-    			add_location(h1, file$1, 41, 8, 1564);
-    			attr_dev(p, "class", "svelte-1llvda");
-    			add_location(p, file$1, 44, 8, 1632);
-    			attr_dev(main, "class", "svelte-1llvda");
-    			add_location(main, file$1, 40, 4, 1549);
+    			attr_dev(a14, "class", "svelte-4k6vm7");
+    			add_location(a14, file$1, 42, 20, 1643);
+    			attr_dev(button0, "class", "svelte-4k6vm7");
+    			add_location(button0, file$1, 42, 12, 1635);
     			attr_dev(a15, "href", "#0");
-    			attr_dev(a15, "class", "svelte-1llvda");
-    			add_location(a15, file$1, 47, 16, 1743);
-    			attr_dev(button2, "class", "svelte-1llvda");
-    			add_location(button2, file$1, 47, 8, 1735);
+    			attr_dev(a15, "class", "svelte-4k6vm7");
+    			add_location(a15, file$1, 43, 20, 1695);
+    			attr_dev(button1, "class", "svelte-4k6vm7");
+    			add_location(button1, file$1, 43, 12, 1687);
+    			attr_dev(div3, "class", "btn-nav svelte-4k6vm7");
+    			add_location(div3, file$1, 41, 8, 1601);
+    			attr_dev(nav, "class", "svelte-4k6vm7");
+    			toggle_class(nav, "active", /*active*/ ctx[0]);
+    			add_location(nav, file$1, 5, 4, 75);
+    			attr_dev(h1, "class", "svelte-4k6vm7");
+    			add_location(h1, file$1, 47, 8, 1774);
+    			attr_dev(p, "class", "svelte-4k6vm7");
+    			add_location(p, file$1, 50, 8, 1842);
+    			attr_dev(main, "class", "svelte-4k6vm7");
+    			add_location(main, file$1, 46, 4, 1759);
     			attr_dev(a16, "href", "#0");
-    			attr_dev(a16, "class", "svelte-1llvda");
-    			add_location(a16, file$1, 48, 16, 1800);
-    			attr_dev(button3, "class", "svelte-1llvda");
-    			add_location(button3, file$1, 48, 8, 1792);
-    			attr_dev(div4, "class", "btn-botton svelte-1llvda");
-    			add_location(div4, file$1, 46, 4, 1702);
-    			attr_dev(div5, "class", "container svelte-1llvda");
-    			add_location(div5, file$1, 1, 0, 1);
+    			attr_dev(a16, "class", "svelte-4k6vm7");
+    			add_location(a16, file$1, 53, 16, 1953);
+    			attr_dev(button2, "class", "svelte-4k6vm7");
+    			add_location(button2, file$1, 53, 8, 1945);
+    			attr_dev(a17, "href", "#0");
+    			attr_dev(a17, "class", "svelte-4k6vm7");
+    			add_location(a17, file$1, 54, 16, 2010);
+    			attr_dev(button3, "class", "svelte-4k6vm7");
+    			add_location(button3, file$1, 54, 8, 2002);
+    			attr_dev(div4, "class", "btn-botton svelte-4k6vm7");
+    			add_location(div4, file$1, 52, 4, 1912);
+    			attr_dev(div5, "class", "container svelte-4k6vm7");
+    			add_location(div5, file$1, 4, 0, 43);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -589,67 +626,81 @@ var app = (function () {
     			append_dev(nav, a0);
     			append_dev(a0, img0);
     			append_dev(nav, t0);
+    			append_dev(nav, a1);
+    			append_dev(a1, img1);
+    			append_dev(nav, t1);
     			append_dev(nav, ul);
     			append_dev(ul, li0);
-    			append_dev(li0, a4);
-    			append_dev(a4, t1);
-    			append_dev(a4, img1);
-    			append_dev(a4, t2);
-    			append_dev(a4, div0);
-    			append_dev(div0, a1);
-    			append_dev(div0, t4);
+    			append_dev(li0, a5);
+    			append_dev(a5, t2);
+    			append_dev(a5, img2);
+    			append_dev(a5, t3);
+    			append_dev(a5, div0);
     			append_dev(div0, a2);
-    			append_dev(div0, t6);
+    			append_dev(div0, t5);
     			append_dev(div0, a3);
-    			append_dev(ul, t8);
+    			append_dev(div0, t7);
+    			append_dev(div0, a4);
+    			append_dev(ul, t9);
     			append_dev(ul, li1);
-    			append_dev(li1, a8);
-    			append_dev(a8, t9);
-    			append_dev(a8, img2);
-    			append_dev(a8, t10);
-    			append_dev(a8, div1);
-    			append_dev(div1, a5);
-    			append_dev(div1, t12);
+    			append_dev(li1, a9);
+    			append_dev(a9, t10);
+    			append_dev(a9, img3);
+    			append_dev(a9, t11);
+    			append_dev(a9, div1);
     			append_dev(div1, a6);
-    			append_dev(div1, t14);
+    			append_dev(div1, t13);
     			append_dev(div1, a7);
-    			append_dev(ul, t16);
+    			append_dev(div1, t15);
+    			append_dev(div1, a8);
+    			append_dev(ul, t17);
     			append_dev(ul, li2);
-    			append_dev(li2, a12);
-    			append_dev(a12, t17);
-    			append_dev(a12, img3);
-    			append_dev(a12, t18);
-    			append_dev(a12, div2);
-    			append_dev(div2, a9);
-    			append_dev(div2, t20);
+    			append_dev(li2, a13);
+    			append_dev(a13, t18);
+    			append_dev(a13, img4);
+    			append_dev(a13, t19);
+    			append_dev(a13, div2);
     			append_dev(div2, a10);
-    			append_dev(div2, t22);
+    			append_dev(div2, t21);
     			append_dev(div2, a11);
-    			append_dev(nav, t24);
+    			append_dev(div2, t23);
+    			append_dev(div2, a12);
+    			append_dev(nav, t25);
     			append_dev(nav, div3);
     			append_dev(div3, button0);
-    			append_dev(button0, a13);
-    			append_dev(div3, t26);
+    			append_dev(button0, a14);
+    			append_dev(div3, t27);
     			append_dev(div3, button1);
-    			append_dev(button1, a14);
-    			append_dev(div5, t28);
+    			append_dev(button1, a15);
+    			append_dev(div5, t29);
     			append_dev(div5, main);
     			append_dev(main, h1);
-    			append_dev(main, t30);
+    			append_dev(main, t31);
     			append_dev(main, p);
-    			append_dev(div5, t32);
+    			append_dev(div5, t33);
     			append_dev(div5, div4);
     			append_dev(div4, button2);
-    			append_dev(button2, a15);
-    			append_dev(div4, t34);
+    			append_dev(button2, a16);
+    			append_dev(div4, t35);
     			append_dev(div4, button3);
-    			append_dev(button3, a16);
+    			append_dev(button3, a17);
+
+    			if (!mounted) {
+    				dispose = listen_dev(nav, "click", /*click_handler*/ ctx[1], false, false, false);
+    				mounted = true;
+    			}
     		},
-    		p: noop,
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*active*/ 1) {
+    				toggle_class(nav, "active", /*active*/ ctx[0]);
+    			}
+    		},
     		i: noop,
     		o: noop,
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div5);
+    			mounted = false;
+    			dispose();
     		}
     	};
 
@@ -664,16 +715,28 @@ var app = (function () {
     	return block;
     }
 
-    function instance$1($$self, $$props) {
+    function instance$1($$self, $$props, $$invalidate) {
     	let { $$slots: slots = {}, $$scope } = $$props;
     	validate_slots("Header", slots, []);
+    	let active = false;
     	const writable_props = [];
 
     	Object.keys($$props).forEach(key => {
     		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Header> was created with unknown prop '${key}'`);
     	});
 
-    	return [];
+    	const click_handler = () => $$invalidate(0, active = !active);
+    	$$self.$capture_state = () => ({ active });
+
+    	$$self.$inject_state = $$props => {
+    		if ("active" in $$props) $$invalidate(0, active = $$props.active);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [active, click_handler];
     }
 
     class Header extends SvelteComponentDev {
