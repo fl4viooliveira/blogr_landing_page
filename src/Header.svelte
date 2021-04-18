@@ -6,13 +6,31 @@
         </a>               
         <ul>
             <li>
-                <a href="#0">Product<img src="../images/icon-arrow-light.svg" alt="arrow"></a>
+                <a href="#0" class="product">Product<img src="../images/icon-arrow-light.svg" alt="arrow">
+                    <div class="dropdown-product">
+                        <a href="#0">Product 1</a>
+                        <a href="#0">Product 2</a>
+                        <a href="#0">Product 3</a>
+                    </div>
+                </a>
             </li>
             <li>
-                <a href="#0">Company<img src="../images/icon-arrow-light.svg" alt="arrow"></a>
+                <a href="#0" class="company">Company<img src="../images/icon-arrow-light.svg" alt="arrow">
+                    <div class="dropdown-company">
+                        <a href="#0">Company 1</a>
+                        <a href="#0">Company 2</a>
+                        <a href="#0">Company 3</a>
+                    </div>
+                </a>
             </li>
             <li>
-                <a href="#0">Connect<img src="../images/icon-arrow-light.svg" alt="arrow"></a>
+                <a href="#0" class="connect">Connect<img src="../images/icon-arrow-light.svg" alt="arrow">
+                    <div class="dropdown-connect">
+                        <a href="#0">Contact</a>
+                        <a href="#0">Newsletter</a>
+                        <a href="#0">Linkedin</a>
+                    </div>                    
+                </a>
             </li>
         </ul>
         <div class="btn-nav">
@@ -64,21 +82,87 @@
         display: flex;
         order: 1;
         justify-self: start;
-        grid-column: 2/3;
-        
-        
+        grid-column: 2/3;        
     }
     ul li{
         list-style: none;
         margin-left: 5px;
-    }
+        
+    }    
     ul li a{
         font-family: 'Overpass', sans-serif;
         color: white;
         margin-right: 5px;
         font-size: 12px;
         padding-left: 20px;
-        
+        position: relative; 
+        display: inline-block;              
+    }
+    /* Dropdown Product*/
+    ul li a .dropdown-product{
+        display: none;
+        position: absolute;
+        background: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 15px;
+    }
+    ul li a .dropdown-product a{
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .product:hover .dropdown-product{
+        display: block;
+    }
+    .dropdown-product a:hover{
+        font-weight: bold;
+    }
+        /* Dropdown Company*/
+        ul li a .dropdown-company{
+        display: none;
+        position: absolute;
+        background: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 15px;
+    }
+    ul li a .dropdown-company a{
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .company:hover .dropdown-company{
+        display: block;
+    }
+    .dropdown-company a:hover{
+        font-weight: bold;
+    }
+        /* Dropdown Connect*/
+        ul li a .dropdown-connect{
+        display: none;
+        position: absolute;
+        background: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 15px;
+    }
+    ul li a .dropdown-connect a{
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+    .connect:hover .dropdown-connect{
+        display: block;
+    }
+    .dropdown-connect a:hover{
+        font-weight: bold;
     }
     .btn-nav{
         order: 2;
@@ -102,10 +186,13 @@
         font-size: 12px;
         font-weight: 600;
         text-decoration: none;
+        display: block;
+        padding: 10px;
+        
     }
     .btn-nav button a:hover{
         font-size: 13px;
-        color: orange;
+        color: rgb(247, 117, 10);
         display:block
     }
     main{
