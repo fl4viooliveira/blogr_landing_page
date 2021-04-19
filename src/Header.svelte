@@ -235,6 +235,14 @@
     }
     .btn-botton button:hover{
         background: white;        
+    }    ul li a .dropdown-product{
+        display: none;
+        position: absolute;
+        background: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 15px;
     }
     .btn-botton button{
         background: none;
@@ -266,7 +274,7 @@
         grid-template-columns: .2fr 2fr .2fr;
         align-items: center;
         padding:40px 40px;       
-    }
+        }
         ul{
             display: none;
         }
@@ -301,6 +309,28 @@
             font-weight: 500;
             margin: 15px;
         }
+            /* Dropdown Product*/
+        .active ul li a .dropdown-product{
+            display: none;
+            position: relative;
+            background:lightgray;
+            justify-self: center;
+        }
+        /* Dropdown Company*/
+        ul li a .dropdown-company{
+            display: none;
+            position: relative;
+            background:lightgray;
+            justify-self: center;
+        }
+        /* Dropdown Connect*/
+        ul li a .dropdown-connect{
+            display: none;
+            position: relative;
+            background:lightgray;
+            justify-self: center;
+        }
+
 
 
     }
