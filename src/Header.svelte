@@ -67,7 +67,9 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
 
-    .container {        
+    .container {   
+        display: grid;
+        position: relative;     
         max-width: 1440px;           
         background: linear-gradient(90.31deg, rgba(254, 134, 110, 0.77) 34.65%, #FF555E 99.72%);
         margin: auto;
