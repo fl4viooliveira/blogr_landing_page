@@ -9,6 +9,9 @@
         </a>
         <a href="#0" class="hamburger">
             <img src="../images/icon-hamburger.svg" alt="hamburger">
+        </a>        
+        <a href="#0" class="close">
+            <img src="../images/icon-close.svg" alt="close">
         </a>               
         <ul>
             <li>
@@ -77,6 +80,9 @@
         padding:40px 60px;        
     }
     .hamburger{
+        display: none;
+    }
+    .close{
         display: none;
     }
     .logo{
@@ -271,6 +277,14 @@
             display: block;
             grid-column: 3/4;
             grid-row: 1/2;
+        }
+        .active .close{
+            display: block;
+            grid-column: 3/4;
+            grid-row: 1/2;
+        }
+        .active .hamburger{
+            display: none;
         }
         .active ul {
             display: grid;
