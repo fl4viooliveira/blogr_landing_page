@@ -51,6 +51,7 @@
     * {
         margin: 0;
         padding: 0;
+        font-family: 'Overpass' sans-serif;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Overpass:wght@300;600&family=Ubuntu:wght@400;500;700&display=swap');
@@ -64,21 +65,49 @@
     }
     .head-line{
         justify-self: center;
-        margin-top: 60px;
+        margin-top: 150px;
         grid-column: 1/3;
         grid-row: 1/2;
+        font-weight: 500;
+        font-size: 33px;
     }
     .content-1{
         grid-column: 1/2;
         grid-row: 2/3;
+        width: 520px;
+        align-self: end;
+        justify-self: center;
+    }
+    .content-1 h2{
+        font-size: 28px;
+        font-weight: 400;
+        margin: 30px 0;
+    }
+    .content-1 p{
+        line-height: 1.8;
+        margin-bottom: 50px;
     }
     .content-2{
         grid-column: 1/2;
         grid-row: 3/4;
+        width: 520px;
+        align-self: start;
+        justify-self: center;
     }
+    .content-2 h2{
+        font-size: 28px;
+        font-weight: 400;
+        margin: 30px 0;
+    }
+    .content-2 p{
+        line-height: 1.8;
+        margin-bottom: 50px;
+    }
+    
     .img-editor{
         grid-column: 2/3;
         grid-row: 1/4;
+        margin-top: 80px;        
     }
     .infrastructure{
         grid-column: 1/3;
@@ -86,29 +115,66 @@
         background: linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
         height: 400px;
         align-self: center;
+        border-bottom-left-radius: 90px;
+        border-top-right-radius: 90px;
     }
     .img-phones{
         grid-column: 1/2;
         grid-row: 4/5;
-        align-self: center;
+        justify-self: center;
+        margin-top: 40px;        
     }
     .content-3{
         grid-column: 2/3;
         grid-row: 4/5;
         align-self: center;
-        color: white;        
+        color: white;
+        width: 540px        
+    }
+    .content-3 h1{
+        font-size: 38px;
+        font-weight: 500;
+        margin: 30px 0;
+    }
+    .content-3 p{
+        line-height: 1.8;
+        margin-bottom: 50px;
     }
     .img-laptop{
         grid-column: 1/2;
         grid-row: 5/7;
+        justify-self: end;
     }
     .content-4{
         grid-column: 2/3;
         grid-row: 5/6;
+        align-self: end;
+        width: 520px;
+    }
+    .content-4 h2{
+        font-size: 28px;
+        font-weight: 400;
+        margin: 30px 0;
+    }
+    .content-4 p{
+        line-height: 1.8;
+        margin-bottom: 50px;
     }
     .content-5{
         grid-column: 2/3;
         grid-row: 6/7;
+        align-self: start;
+        width: 520px; 
+    }
+    .content-5 h2{
+        font-size: 28px;
+        font-weight: 400;
+        margin: 30px 0;
+
+    }
+    .content-5 p{
+        line-height: 1.8;
+        margin-bottom: 50px;
     }
 
 </style>
