@@ -14,9 +14,9 @@
             Flexible content management enables users to easily move through posts. Increase the usability of your blog by adding customized categories, sections, format, or flow. With this functionslity, you're in full control.
         </p>
     </div>
-    <div class="img-editor">
-        <img src="./images/illustration-editor-desktop.svg" alt="editor">
-    </div>
+    
+    <img class="img-editor" src="./images/illustration-editor-desktop.svg" alt="editor">
+    
     <div class="infrastructure"></div>
     <div class="img-phones">
         <img src="./images/illustration-phones.svg" alt="phones">
@@ -61,20 +61,23 @@
         margin: auto;
         display: grid;
         grid-template-columns: 50% 50%;
-        grid-template-rows: 100px 0.50fr 0.50fr .50fr 0.50fr 0.50fr;
+        grid-template-rows: 0.2fr 0.50fr 0.50fr .50fr 0.50fr 0.50fr;
     }
     .head-line{
         justify-self: center;
-        margin-top: 150px;
+        text-align: center;
+        align-self: center;
         grid-column: 1/3;
         grid-row: 1/2;
         font-weight: 500;
         font-size: 33px;
+        color: rgba(21, 51, 77, 1);
+        width: 100%;
     }
     .content-1{
         grid-column: 1/2;
         grid-row: 2/3;
-        width: 520px;
+        width: 100%;
         align-self: end;
         justify-self: center;
     }
@@ -82,15 +85,23 @@
         font-size: 28px;
         font-weight: 400;
         margin: 30px 0;
+        color: rgba(21, 51, 77, 1);
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
+
     }
     .content-1 p{
         line-height: 1.8;
         margin-bottom: 50px;
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
     .content-2{
         grid-column: 1/2;
         grid-row: 3/4;
-        width: 520px;
+        width: 100%;
         align-self: start;
         justify-self: center;
     }
@@ -98,17 +109,28 @@
         font-size: 28px;
         font-weight: 400;
         margin: 30px 0;
+        color: rgba(21, 51, 77, 1);
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
     .content-2 p{
         line-height: 1.8;
         margin-bottom: 50px;
+        width: 80%;
+        padding-left: 10%;
+        padding-right: 10%;
     }
     
     .img-editor{
         grid-column: 2/3;
         grid-row: 1/4;
-        margin-top: 80px;        
+        margin-top: 80px;
+        margin-left: 8%;
+        width: 125%; 
+        align-items: center;  
     }
+
     .infrastructure{
         grid-column: 1/3;
         grid-row: 4/5;
@@ -118,18 +140,23 @@
         border-bottom-left-radius: 90px;
         border-top-right-radius: 90px;
     }
-    .img-phones{
+    .img-phones{ 
         grid-column: 1/2;
         grid-row: 4/5;
         justify-self: center;
-        margin-top: 40px;        
+        align-self: center; 
+        width: 100%;       
+    }
+    .img-phones img{
+        width: 80%;
+        margin-top: 5%;
     }
     .content-3{
         grid-column: 2/3;
         grid-row: 4/5;
         align-self: center;
         color: white;
-        width: 540px        
+        width: 100%;        
     }
     .content-3 h1{
         font-size: 38px;
@@ -155,6 +182,7 @@
         font-size: 28px;
         font-weight: 400;
         margin: 30px 0;
+        color: rgba(21, 51, 77, 1);
     }
     .content-4 p{
         line-height: 1.8;
@@ -170,6 +198,7 @@
         font-size: 28px;
         font-weight: 400;
         margin: 30px 0;
+        color: rgba(21, 51, 77, 1);
 
     }
     .content-5 p{
