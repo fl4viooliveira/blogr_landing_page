@@ -71,7 +71,10 @@
         display: grid;
         position: relative;     
         max-width: 1440px;           
-        background: linear-gradient(90.31deg, rgba(254, 134, 110, 0.77) 34.65%, #FF555E 99.72%);
+        background: url(../images/bg-pattern-intro.svg) no-repeat, linear-gradient(70.28deg, #FE846D 11.18%, #FF4457 84.37%);
+        background-position-x: 17%;
+        background-position-y: 54%;
+        background-size: 180%;
         margin: auto;
         border-bottom-left-radius: 90px ;
     } 

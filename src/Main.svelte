@@ -14,9 +14,8 @@
             Flexible content management enables users to easily move through posts. Increase the usability of your blog by adding customized categories, sections, format, or flow. With this functionslity, you're in full control.
         </p>
     </div>
-    
-    <img class="img-editor" src="./images/illustration-editor-desktop.svg" alt="editor">
-    
+    <!-- <img src="./images/bg-pattern-circles.svg" alt="circles" class="img-circles"> -->
+    <img class="img-editor" src="./images/illustration-editor-desktop.svg" alt="editor">    
     <div class="infrastructure"></div>
     <div class="img-phones">
         <img src="./images/illustration-phones.svg" alt="phones">
@@ -26,10 +25,8 @@
         <p>
             With reliability and speed in mind, wordwide data centers provide the backbone for ultra-fast connectivity. This ensures your site will load instantly, no matter where your  readers are, keeping your site competitive.
         </p>
-    </div>    
-    <div class="img-laptop">
-        <img src="./images/illustration-laptop-desktop.svg" alt="laptop">
-    </div>
+    </div> 
+    <img class="img-laptop" src="./images/illustration-laptop-desktop.svg" alt="laptop">
     <div class="content-4">
         <h2>
             Free, open, simple
@@ -99,11 +96,14 @@
         padding-right: 10%;
     }
     .content-2{
+        position: relative;
         grid-column: 1/2;
         grid-row: 3/4;
         width: 100%;
         align-self: start;
         justify-self: center;
+        background: rgb(255, 255, 255);
+        z-index: 3;
     }
     .content-2 h2{
         font-size: 28px;
@@ -132,78 +132,106 @@
     }
 
     .infrastructure{
+        position: relative;
         grid-column: 1/3;
         grid-row: 4/5;
-        background: linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
+        background: url(../images/bg-pattern-circles.svg) no-repeat,linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
+        background-position-x: -50%;
+        background-position-y: 80%;
+        background-size: 70%;
         height: 400px;
         align-self: center;
         border-bottom-left-radius: 90px;
-        border-top-right-radius: 90px;
+        border-top-right-radius: 90px; 
+               
     }
-    .img-phones{ 
+    .img-phones{
+        position: relative; 
         grid-column: 1/2;
         grid-row: 4/5;
         justify-self: center;
         align-self: center; 
-        width: 100%;       
+        width: 100%; 
+        z-index: 3;     
     }
     .img-phones img{
         width: 80%;
         margin-top: 5%;
+        margin-left: 20%;
     }
     .content-3{
+        position: relative;
         grid-column: 2/3;
-        grid-row: 4/5;
-        align-self: center;
+        grid-row: 4/5;        
         color: white;
-        width: 100%;        
+        width: 100%;         
+        justify-self: center;
+        align-self: center; 
+        z-index: 3;      
     }
     .content-3 h1{
-        font-size: 38px;
+        font-size: 32px;
         font-weight: 500;
         margin: 30px 0;
+        width: 80%;
+        padding-right: 10%;
     }
     .content-3 p{
         line-height: 1.8;
         margin-bottom: 50px;
+        width: 80%;
+        padding-right: 10%;
     }
     .img-laptop{
         grid-column: 1/2;
         grid-row: 5/7;
         justify-self: end;
+        width: 140%;
     }
     .content-4{
         grid-column: 2/3;
         grid-row: 5/6;
         align-self: end;
-        width: 520px;
+        width: 100%;
+        align-self: end;
+        justify-self: center;
     }
     .content-4 h2{
         font-size: 28px;
         font-weight: 400;
         margin: 30px 0;
         color: rgba(21, 51, 77, 1);
+        width: 80%;
+        padding-right: 10%;
     }
     .content-4 p{
         line-height: 1.8;
-        margin-bottom: 50px;
+        width: 80%;
+        padding-right: 10%;
     }
     .content-5{
         grid-column: 2/3;
         grid-row: 6/7;
         align-self: start;
-        width: 520px; 
+        width: 100%;
+        align-self: start;
+        justify-self: center;
+        margin-top: 5%;
     }
     .content-5 h2{
         font-size: 28px;
         font-weight: 400;
         margin: 30px 0;
         color: rgba(21, 51, 77, 1);
+        width: 80%;
+        padding-right: 10%;
 
     }
     .content-5 p{
         line-height: 1.8;
         margin-bottom: 50px;
+        width: 80%;
+        padding-right: 10%;
     }
 
 </style>
