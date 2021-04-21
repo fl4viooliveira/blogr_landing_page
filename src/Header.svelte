@@ -17,18 +17,21 @@
             <li>
                 <a href="#0" class="product">Product<img src="../images/icon-arrow-light.svg" alt="arrow">
                     <div class="dropdown-product">
-                        <a href="#0">Product 1</a>
-                        <a href="#0">Product 2</a>
-                        <a href="#0">Product 3</a>
+                        <a href="#0">Overview</a>
+                        <a href="#0">Pricing</a>
+                        <a href="#0">Marketplace</a>
+                        <a href="#0">Features</a>
+                        <a href="#0">Integrations</a>
                     </div>
                 </a>
             </li>
             <li>
                 <a href="#0" class="company">Company<img src="../images/icon-arrow-light.svg" alt="arrow">
                     <div class="dropdown-company">
-                        <a href="#0">Company 1</a>
-                        <a href="#0">Company 2</a>
-                        <a href="#0">Company 3</a>
+                        <a href="#0">About</a>
+                        <a href="#0">Team</a>
+                        <a href="#0">Blog</a>
+                        <a href="#0">Careers</a>
                     </div>
                 </a>
             </li>
@@ -72,9 +75,9 @@
         position: relative;     
         max-width: 1440px;           
         background: url(../images/bg-pattern-intro.svg) no-repeat, linear-gradient(70.28deg, #FE846D 11.18%, #FF4457 84.37%);
-        background-position-x: 17%;
-        background-position-y: 54%;
-        background-size: 180%;
+        background-position-x: 17%, 0;
+        background-position-y: 54%, 0;
+        background-size: 180%, 100%;
         margin: auto;
         border-bottom-left-radius: 90px ;
     } 

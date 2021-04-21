@@ -136,8 +136,8 @@
         grid-column: 1/3;
         grid-row: 4/5;
         background: url(../images/bg-pattern-circles.svg) no-repeat, linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
-        background-position-x: -50%;
-        background-position-y: 80%;
+        background-position-x: -50%, 0;
+        background-position-y: 80%, 0;
         background-size: 70%, 100%;
         height: 400px;
         align-self: center;
