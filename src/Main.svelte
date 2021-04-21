@@ -102,7 +102,6 @@
         width: 100%;
         align-self: start;
         justify-self: center;
-        background: rgb(255, 255, 255);
         z-index: 3;
     }
     .content-2 h2{

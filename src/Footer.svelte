@@ -51,6 +51,7 @@
         display: grid;
         grid-template-columns: .30fr 1fr;
         padding: 0 50px;
+        margin-top: 70px;
     }
     .logo{
         grid-column: 1/2;

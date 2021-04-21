@@ -15,18 +15,24 @@
         </a>               
         <ul>
             <li>
-                <a href="#0" class="product">Product<img src="../images/icon-arrow-light.svg" alt="arrow">
+                <a href="#0" class="product">
+                    Product
+                    <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
+                    <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-product">
-                        <a href="#0">Overview</a>
-                        <a href="#0">Pricing</a>
-                        <a href="#0">Marketplace</a>
-                        <a href="#0">Features</a>
-                        <a href="#0">Integrations</a>
+                        <li><a href="#0">Overview</a></li>
+                        <li><a href="#0">Pricing</a></li>
+                        <li><a href="#0">Marketplace</a></li>
+                        <li><a href="#0">Features</a></li>
+                        <li><a href="#0">Integrations</a></li> 
                     </div>
                 </a>
             </li>
             <li>
-                <a href="#0" class="company">Company<img src="../images/icon-arrow-light.svg" alt="arrow">
+                <a href="#0" class="company">
+                    Company
+                    <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
+                    <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-company">
                         <a href="#0">About</a>
                         <a href="#0">Team</a>
@@ -36,7 +42,10 @@
                 </a>
             </li>
             <li>
-                <a href="#0" class="connect">Connect<img src="../images/icon-arrow-light.svg" alt="arrow">
+                <a href="#0" class="connect">
+                    Connect
+                    <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
+                    <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-connect">
                         <a href="#0">Contact</a>
                         <a href="#0">Newsletter</a>
@@ -118,6 +127,9 @@
         padding-left: 20px;
         position: relative; 
         display: inline-block;              
+    }
+    .arrow-dark{
+        display: none;
     }
     /* Dropdown Product*/
     ul li a .dropdown-product{
@@ -281,7 +293,10 @@
         display: grid;
         grid-template-columns: .2fr 2fr .2fr;
         align-items: center;
-        padding:40px 40px;       
+        padding: 10% 10%;       
+        }
+        ul .arrow-dark{
+        display: block;
         }
         ul{
             display: none;
@@ -322,7 +337,8 @@
             display: none;
             position: relative;
             background:lightgray;
-            justify-self: center;
+            grid-column: 1/4;
+            width: 90%;            
         }
         /* Dropdown Company*/
         ul li a .dropdown-company{
@@ -338,13 +354,5 @@
             background:lightgray;
             justify-self: center;
         }
-
-
-
     }
-
-
-
-
-
 </style>
