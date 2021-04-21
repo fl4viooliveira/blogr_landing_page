@@ -135,15 +135,14 @@
         position: relative;
         grid-column: 1/3;
         grid-row: 4/5;
-        background: url(../images/bg-pattern-circles.svg) no-repeat,linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
+        background: url(../images/bg-pattern-circles.svg) no-repeat, linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
         background-position-x: -50%;
         background-position-y: 80%;
-        background-size: 70%;
+        background-size: 70%, 100%;
         height: 400px;
         align-self: center;
         border-bottom-left-radius: 90px;
-        border-top-right-radius: 90px; 
-               
+        border-top-right-radius: 90px;               
     }
     .img-phones{
         position: relative; 
