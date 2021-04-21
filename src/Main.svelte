@@ -14,12 +14,13 @@
             Flexible content management enables users to easily move through posts. Increase the usability of your blog by adding customized categories, sections, format, or flow. With this functionslity, you're in full control.
         </p>
     </div>
-    <!-- <img src="./images/bg-pattern-circles.svg" alt="circles" class="img-circles"> -->
-    <img class="img-editor" src="./images/illustration-editor-desktop.svg" alt="editor">    
+    <img class="img-editor" src="./images/illustration-editor-desktop.svg" alt="editor">
+    <img class="img-editor-mb" src="./images/illustration-editor-mobile.svg" alt="editor">    
     <div class="infrastructure"></div>
     <div class="img-phones">
         <img src="./images/illustration-phones.svg" alt="phones">
     </div>
+
     <div class="content-3">
         <h1>State of the Art Infrastructure</h1>
         <p>
@@ -230,6 +231,37 @@
         margin-bottom: 50px;
         width: 80%;
         padding-right: 10%;
+    }
+    .img-editor-mb{
+        display: none;
+    }
+    @media screen and (max-width: 700px){
+        .container{
+        max-width: 100%;
+        margin: 30px auto 0 auto;
+        display: flex;
+        flex-direction: column;
+        }
+        .head-line{
+            order: 1;
+            margin-bottom: 40px;            
+        }
+        .img-editor{
+            display: none;
+        }
+        .img-editor-mb{
+            display: block;
+            order: 2;
+        }
+        .content-1{
+            order: 3;
+            text-align: center;
+        }
+        .content-2{
+            order: 4;
+            text-align: center;
+        }
+
     }
 
 </style>

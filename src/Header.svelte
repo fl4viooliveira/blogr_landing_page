@@ -296,7 +296,10 @@
         padding: 10% 10%;       
         }
         ul .arrow-dark{
-        display: block;
+        display: inline-block;
+        }
+        ul .arrow-light{
+        display: none;
         }
         ul{
             display: none;
