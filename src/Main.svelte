@@ -18,16 +18,17 @@
     <img class="img-editor-mb" src="./images/illustration-editor-mobile.svg" alt="editor">    
     <div class="infrastructure"></div>
     <div class="img-phones">
-        <img src="./images/illustration-phones.svg" alt="phones">
+        <img src="./images/illustration-phones.svg" alt="phones">        
     </div>
-
-    <div class="content-3">
+    <img src="./images/illustration-phones.svg" alt="phones" class="phones-mobile">
+    <div class="content-3" id="content-3">
         <h1>State of the Art Infrastructure</h1>
         <p>
             With reliability and speed in mind, wordwide data centers provide the backbone for ultra-fast connectivity. This ensures your site will load instantly, no matter where your  readers are, keeping your site competitive.
         </p>
     </div> 
     <img class="img-laptop" src="./images/illustration-laptop-desktop.svg" alt="laptop">
+    <img class="img-laptop-mobile" src="./images/illustration-laptop-mobile.svg" alt="laptop">
     <div class="content-4">
         <h2>
             Free, open, simple
@@ -187,6 +188,9 @@
         justify-self: end;
         width: 140%;
     }
+    .img-laptop-mobile{
+        display: none;
+    }
     .content-4{
         grid-column: 2/3;
         grid-row: 5/6;
@@ -238,13 +242,17 @@
     @media screen and (max-width: 700px){
         .container{
         max-width: 100%;
-        margin: 30px auto 0 auto;
         display: flex;
         flex-direction: column;
         }
         .head-line{
+            margin-top: 30px;
             order: 1;
-            margin-bottom: 40px;            
+            margin-bottom: 40px;
+            word-wrap: break-word;  
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
         .img-editor{
             display: none;
@@ -261,6 +269,53 @@
             order: 4;
             text-align: center;
         }
+        .img-phones{
+                            
+        display: none;
+                      
+        }
+        .phones-mobile{
+            order: 5;
+            margin-bottom: -180px;
+            z-index: 1;
+
+        }
+        .infrastructure{
+            order: 6;
+            width: 100%;
+            height: 500px;            
+            background: url(../images/bg-pattern-circles.svg) no-repeat, linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
+            background-position-x: 50%, 0;
+            background-position-y: -200%, 0;
+            background-size: 140%, 100%;
+            text-align: center;
+        }
+        /* TODO */
+
+        #content-3{
+            text-align: center;
+            order: 7;
+            margin-top: -380px;
+            width: 100%;
+        }
+       
+        .img-laptop-mobile{
+            margin-top: 50px;
+            order: 8;
+            display: block;
+        }
+        .img-laptop{
+            display: none;
+        }
+        .content-4{
+            order: 9;
+            text-align: center;
+        }
+        .content-5{
+            order: 10;
+            text-align: center;
+        }
+
 
     }
 
