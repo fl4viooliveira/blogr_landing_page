@@ -138,8 +138,7 @@
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
-        border-radius: 15px;
-        
+        border-radius: 15px;  
     }
     ul li a .dropdown-product a {
         color: black;
@@ -150,7 +149,7 @@
     .product:hover .dropdown-product{
         display: block;
         left: 50%;
-        transform: translateX(-50%);               
+        transform: translateX(-50%);                   
     }
     .dropdown-product a:hover{
         font-weight: bold;
@@ -261,10 +260,29 @@
     }
     .btn-botton button:hover{
         background: white;        
-    }    ul li a .dropdown-product{
+    }    
+    ul li a .dropdown-product{
         display: none;
         position: absolute;
-        background: #e4e3e3;
+        background: #eeeded;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 15px;
+    }
+    ul li a .dropdown-company{
+        display: none;
+        position: absolute;
+        background: #eeeded;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        border-radius: 15px;
+    }
+    ul li a .dropdown-connect{
+        display: none;
+        position: absolute;
+        background: #eeeded;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -359,6 +377,7 @@
             display: none;
             position: relative;
         }
+
         .product:hover .dropdown-product{
             display: block;
             width: 70vw;
@@ -447,7 +466,6 @@
         .btn-nav button a:hover{
             color: rgb(255, 255, 255);
             display:block
-        }
-        
+        }        
     }
 </style>

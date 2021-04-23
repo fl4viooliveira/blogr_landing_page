@@ -105,6 +105,45 @@
         color: white;
         font-size: 15px;
     }
+
+    @media screen and (max-width: 700px){
+        .container{
+            display: flex;
+            flex-direction: column;
+
+        }
+        .logo{
+            order: 1;
+            align-self: center;
+            justify-self: center;
+        }
+        ul{
+            order: 2;
+            align-self: center;
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+        }
+        li a{
+            margin: 30px;
+        }
+        .product{
+            order: 1;
+            align-self: center;
+            justify-self: center;            
+        }
+        .company{
+            order: 2;
+            align-self: center;
+            justify-self: center;
+        }
+        .connect{
+            order: 3;
+            align-self: center;
+            justify-self: center;
+        }
+    }
     
 
 </style>
