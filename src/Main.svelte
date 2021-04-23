@@ -1,5 +1,3 @@
-
-
 <div class="container">
     <h1 class="head-line">Designed for the future</h1>
     <div class="content-1">
@@ -159,6 +157,9 @@
         margin-top: 5%;
         margin-left: 20%;
     }
+    .phones-mobile{
+        display: none;
+    }
     .content-3{
         position: relative;
         grid-column: 2/3;
@@ -275,6 +276,7 @@
                       
         }
         .phones-mobile{
+            display: block;
             order: 5;
             margin-bottom: -180px;
             z-index: 1;
@@ -286,16 +288,24 @@
             height: 500px;            
             background: url(../images/bg-pattern-circles.svg) no-repeat, linear-gradient(70.28deg, #2E2F41 11.18%, #3D4063 84.37%);
             background-position-x: 50%, 0;
-            background-position-y: -200%, 0;
+            background-position-y: 700%, 0;
             background-size: 140%, 100%;
             text-align: center;
         }
-        /* TODO */
 
-        #content-3{
+        .content-3{
             text-align: center;
             order: 7;
             margin-top: -380px;
+            width: 80%;
+        }
+        .content-3 h1{
+            padding-right: 0;
+            width: 100%;
+            
+        }
+        .content-3 p{
+            padding-right: 0;
             width: 100%;
         }
        
@@ -311,12 +321,31 @@
             order: 9;
             text-align: center;
         }
+        .content-4 h2 {
+            padding-right: 0;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .content-4 p{
+            padding-right: 0;
+            width: 80%;
+            margin: auto;
+        }
         .content-5{
             order: 10;
             text-align: center;
         }
-
-
+        .content-5 h2 {
+            padding-right: 0;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .content-5 p{
+            padding-right: 0;
+            width: 80%;
+            margin: auto;
+        }
     }
-
 </style>
