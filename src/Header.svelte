@@ -83,7 +83,7 @@
         display: grid;
         position: relative;     
         max-width: 1440px;           
-        background: url(../images/bg-pattern-intro.svg) no-repeat, linear-gradient(70.28deg, #FE846D 11.18%, #FF4457 84.37%);
+        background: url(./images/bg-pattern-intro.svg) no-repeat, linear-gradient(70.28deg, #FE846D 11.18%, #FF4457 84.37%);
         background-position-x: 17%, 0;
         background-position-y: 54%, 0;
         background-size: 180%, 100%;
