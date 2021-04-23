@@ -20,11 +20,11 @@
                     <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
                     <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-product">
-                        <li><a href="#0">Overview</a></li>
-                        <li><a href="#0">Pricing</a></li>
-                        <li><a href="#0">Marketplace</a></li>
-                        <li><a href="#0">Features</a></li>
-                        <li><a href="#0">Integrations</a></li> 
+                        <a href="#0">Overview</a>
+                        <a href="#0">Pricing</a>
+                        <a href="#0">Marketplace</a>
+                        <a href="#0">Features</a>
+                        <a href="#0">Integrations</a>                        
                     </div>
                 </a>
             </li>
@@ -116,8 +116,7 @@
     }
     ul li{
         list-style: none;
-        margin-left: 5px;
-        
+        margin-left: 5px;        
     }    
     ul li a{
         font-family: 'Overpass', sans-serif;
@@ -140,8 +139,9 @@
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
         border-radius: 15px;
+        
     }
-    ul li a .dropdown-product a{
+    ul li a .dropdown-product a {
         color: black;
         padding: 12px 16px;
         text-decoration: none;
@@ -149,12 +149,14 @@
     }
     .product:hover .dropdown-product{
         display: block;
+        left: 50%;
+        transform: translateX(-50%);               
     }
     .dropdown-product a:hover{
         font-weight: bold;
     }
-        /* Dropdown Company*/
-        ul li a .dropdown-company{
+    /* Dropdown Company*/
+    ul li a .dropdown-company{
         display: none;
         position: absolute;
         background: #f9f9f9;
@@ -167,10 +169,12 @@
         color: black;
         padding: 12px 16px;
         text-decoration: none;
-        display: block;
+        display: block; 
     }
     .company:hover .dropdown-company{
         display: block;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .dropdown-company a:hover{
         font-weight: bold;
@@ -193,6 +197,8 @@
     }
     .connect:hover .dropdown-connect{
         display: block;
+        left: 50%;
+        transform: translateX(-50%);
     }
     .dropdown-connect a:hover{
         font-weight: bold;
@@ -258,7 +264,7 @@
     }    ul li a .dropdown-product{
         display: none;
         position: absolute;
-        background: #f9f9f9;
+        background: #e4e3e3;
         min-width: 160px;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
@@ -298,11 +304,20 @@
         ul .arrow-dark{
         display: inline-block;
         }
+        ul li:hover .arrow-dark{
+            transform: scaleY(-1);
+            width: 15px;
+        }
         ul .arrow-light{
         display: none;
         }
         ul{
             display: none;
+            margin-top: 50px;
+        }
+        ul li a{
+            margin: 0;
+            padding: 0;
         }
         .btn-nav{
             display: none;
@@ -326,36 +341,113 @@
             width: 100%;
             text-align: center;
             background: rgb(255, 255, 255);
-            border-radius: 10px;
-            margin-top: 40px;                        
+            border-radius: 10px;                       
         }
         .active ul li a{
             color: black;
             font-size: 25px;
             font-weight: 500;
             margin: 15px;
+            text-decoration: none;            
         }
-            /* Dropdown Product*/
-        .active ul li a .dropdown-product{
+        ul li{
+            margin-top: 35px;
+        }
+        /* Dropdown Product*/
+
+        ul li a .dropdown-product{
             display: none;
             position: relative;
-            background:lightgray;
-            grid-column: 1/4;
-            width: 90%;            
+        }
+        .product:hover .dropdown-product{
+            display: block;
+            width: 70vw;
+            left: 50%;
+            transform: translateX(-50%);       
         }
         /* Dropdown Company*/
         ul li a .dropdown-company{
-            display: none;
+            display: none;           
             position: relative;
-            background:lightgray;
-            justify-self: center;
+        }
+        .company:hover .dropdown-company{
+            display: block;
+            width: 70vw;
+            left: 50%;
+            transform: translateX(-50%);       
         }
         /* Dropdown Connect*/
         ul li a .dropdown-connect{
             display: none;
             position: relative;
-            background:lightgray;
             justify-self: center;
         }
+        .connect:hover .dropdown-connect{
+            display: block;
+            width: 70vw;
+            left: 50%;
+            transform: translateX(-50%);       
+        }
+        .active .btn-nav{
+            display: block;
+            display: grid;
+            grid-column: 1/4;
+            width: 100%;
+            height: 100%;
+            background: rgb(255, 255, 255);
+            border-radius: 10px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            
+        }
+        .active .btn-nav button{
+            align-self: center;
+            justify-self: center;
+            background: none;
+            width: 180px;
+            height: 80px;
+            border-radius: 80px;
+        }
+        .active .btn-nav::before{
+            content: '\A';
+            white-space: pre;
+            display: block;
+            border-top: solid 1px rgb(105, 104, 104);
+            width: 70%;
+            justify-self: center;
+            margin-top: 30px;
+        }
+        .active .btn-nav button a{
+            color: rgb(21, 6, 105);
+            font-size: 25px;
+            font-weight: 500;
+        }
+
+        .btn-nav button{
+        background: none;
+        width: 80px;
+        height: 20px;
+        border-radius: 50px;
+        border: none;
+        
+        }
+        .btn-nav button:hover{
+            background:  linear-gradient(70.28deg, #FE846D 11.18%, #FF4457 84.37%);        
+        }
+        .btn-nav button a{
+            color: white;
+            font-family: 'Overpass', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            text-decoration: none;
+            display: block;
+            padding: 8px;
+            
+        }
+        .btn-nav button a:hover{
+            color: rgb(255, 255, 255);
+            display:block
+        }
+        
     }
 </style>

@@ -280,7 +280,6 @@
             order: 5;
             margin-bottom: -180px;
             z-index: 1;
-
         }
         .infrastructure{
             order: 6;
