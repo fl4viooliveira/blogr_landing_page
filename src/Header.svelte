@@ -5,20 +5,20 @@
 <div class="container">    
     <nav class:active on:click={() => active= !active}>
         <a href="#0" class="logo">
-            <img src="../images/logo.svg" alt="logo">
+            <img src="./images/logo.svg" alt="logo">
         </a>
         <a href="#0" class="hamburger">
-            <img src="../images/icon-hamburger.svg" alt="hamburger">
+            <img src="./images/icon-hamburger.svg" alt="hamburger">
         </a>        
         <a href="#0" class="close">
-            <img src="../images/icon-close.svg" alt="close">
+            <img src="./images/icon-close.svg" alt="close">
         </a>               
         <ul>
             <li>
                 <a href="#0" class="product">
                     Product
-                    <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
-                    <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
+                    <img src="./images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
+                    <img src="./images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-product">
                         <a href="#0">Overview</a>
                         <a href="#0">Pricing</a>
@@ -31,8 +31,8 @@
             <li>
                 <a href="#0" class="company">
                     Company
-                    <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
-                    <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
+                    <img src="./images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
+                    <img src="./images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-company">
                         <a href="#0">About</a>
                         <a href="#0">Team</a>
@@ -44,8 +44,8 @@
             <li>
                 <a href="#0" class="connect">
                     Connect
-                    <img src="../images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
-                    <img src="../images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
+                    <img src="./images/icon-arrow-light.svg" alt="arrow" class="arrow-light">
+                    <img src="./images/icon-arrow-dark.svg" alt="arrow" class="arrow-dark">
                     <div class="dropdown-connect">
                         <a href="#0">Contact</a>
                         <a href="#0">Newsletter</a>
